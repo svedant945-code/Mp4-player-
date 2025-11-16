@@ -1,0 +1,108 @@
+/* Basic reset for margins and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Center the video container */
+.video-container {
+    /* increased vertical space: allow large responsive height */
+    background: #d3c6a8;
+    border: 10px solid #8b5a2b;
+    border-radius: 15px;
+    padding: 26px;                 /* a bit more padding for visual breathing room */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.55);
+    width: 92%;
+    max-width: 1200px;            /* allow wider player if available */
+    margin: 32px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+}
+
+/* Style the video element */
+video {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;             /* key change: allow video to grow up to 80% of viewport height */
+    min-height: 480px;            /* ensure a reasonable minimum height on large screens */
+    border-radius: 10px;
+    border: 2px solid #ccc; /* Light gray border */
+    background: #000;
+    align-self: center;
+}
+
+/* Style the controls */
+.controls {
+    display: flex;
+    gap: 8px;                 /* closer spacing */
+    margin-top: 12px;
+    align-items: center;
+    justify-content: flex-end; /* align controls to the right */
+    flex-wrap: nowrap;
+}
+
+/* make all control buttons the same compact size for symmetry */
+.controls button {
+    padding: 8px 10px;
+    min-height: 44px;
+    min-width: 72px;         /* equal width for symmetry */
+    border-radius: 6px;
+    background-color: #8b5a2b;
+    color: #fff;
+    border: 2px solid #5a3f26;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* keep hover and active feel but compact */
+.controls button:hover {
+    transform: translateY(-2px);
+    background-color: #6f4c3e;
+}
+
+/* resolution select: match height and look balanced */
+.controls select#resolutionSelect {
+    padding: 8px 10px;
+    min-height: 44px;
+    border-radius: 6px;
+    border: 2px solid #8b5a2b;
+    background: #fff;
+    font-weight: 700;
+    min-width: 160px;       /* wider so options look balanced */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* small meta display */
+.meta {
+  margin-top: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: #403019;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* responsive tweaks */
+@media (max-width: 700px) {
+  .video-container { padding: 14px; max-width: 95%; }
+  video { max-height: 380px; }
+  .controls { gap: 8px; }
+}
+
+@media (max-width: 900px) {
+  .video-container { padding: 18px; max-width: 95%; }
+  video { max-height: 66vh; min-height: 320px; }
+}
+
+@media (max-width: 480px) {
+  .video-container { padding: 12px; }
+  video { max-height: 56vh; min-height: 220px; }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage MP4 Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="video-container">
+        <!-- larger video element -->
+        <video id="videoPlayer" controls preload="metadata" poster="poster.jpg">
+            <!-- default / fallback source -->
+            <source id="videoSource" src="videoplayback_720p.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="controls">
+            <button id="playPauseBtn">Play</button>
+            <button id="stopBtn">Stop</button>
+            <button id="downloadBtn">Download</button>
+
+            <!-- resolution options use data-src for switching -->
+            <select id="resolutionSelect" aria-label="Select resolution">
+                <option value="2160" data-src="videoplayback_4k.mp4">4K (2160p)</option>
+                <option value="1080" data-src="videoplayback_1080p.mp4">1080p</option>
+                <option value="720"  data-src="videoplayback_720p.mp4" selected>720p</option>
+                <option value="480"  data-src="videoplayback_480p.mp4">480p</option>
+                <option value="360"  data-src="videoplayback_360p.mp4">360p</option>
+            </select>
+        </div>
+
+        <!-- optional: show current resolution -->
+        <div class="meta">
+          <span id="currentResolution">720p</span>
+          <span id="videoStatus" style="margin-left:12px;color:#666;"></span>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
